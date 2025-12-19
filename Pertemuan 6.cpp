@@ -1,25 +1,31 @@
-#include <ncurses/curses.h>
-#include <windows.h>
+#include <iostream>
 using namespace std;
 
 int main() {
-    
-initscr();
+    int arr[] = {5, 3, 4, 1, 2};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    for(int i = 1; 1 < 3; i++) {
-        mvprintw(26, 100, "Loading...");
-        mvprintw(27, 100, "--------------------");
-        mvprintw(28, 100, "|                  |");
-        mvprintw(29, 100, "--------------------");
-
-        for(int f = 1; f < 18; f++) {
-            mvprintw(28, 100 + f, ">");
-            refresh();
-            Sleep(200);
+    cout << "Array sebelum diurutkan: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
     }
-    }
-   
-endwin();
-return 0;
+    cout << endl;
 
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    cout << "Array setelah diurutkan: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
