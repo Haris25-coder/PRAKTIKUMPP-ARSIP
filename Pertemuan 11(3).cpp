@@ -20,7 +20,10 @@ int main() {
 
 
 
+
+
 MENULIS FILE
+
 
 #include <iostream>
 #include <fstream>
